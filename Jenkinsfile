@@ -2,32 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
                 echo 'Compilando proyecto...'
-                sh 'mvn clean compile'
+                sh 'mvn clean package'
             }
         }
-
-        stage('test') {
+        stage('Test') {
             steps {
                 echo 'Ejecutando pruebas...'
-                sh 'mvn -q test || echo "No hay pruebas implementadas"'
+                sh 'mvn test || echo "Sin pruebas definidas aún"'
             }
         }
-
-        stage('deploy') {
+        stage('Deploy') {
             steps {
                 echo 'Simulando despliegue...'
-
-                // Crear carpeta de "deploy" si no existe
-                sh 'mkdir -p deploy'
-
-                // Copiar el JAR como si fuera un despliegue real
-                sh 'cp target/*.jar deploy/ || echo "No se encontró el .jar"'
-
-                echo 'Aplicación copiada a la carpeta deploy/.'
-                echo 'Despliegue simulado completado.'
+                echo 'Aplicación lista'
             }
         }
     }
