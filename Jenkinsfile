@@ -2,13 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                echo 'Clonando repositorio'
-                checkout scm
-            }
-        }
-
         stage('build') {
             steps {
                 echo 'Compilando proyecto...'
