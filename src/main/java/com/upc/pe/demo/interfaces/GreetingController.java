@@ -27,4 +27,9 @@ public class GreetingController {
     public String greeting4(@PathVariable String phone) {
         return "Hello " + phone;
     }
+
+    @GetMapping("{password}")
+    public String greeting5(@PathVariable String password) {
+        return "Hello " + password;
+    }
 }
