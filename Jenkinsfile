@@ -16,10 +16,18 @@ pipeline {
             }
         }
 
-        stage('package') {
+        stage('deploy') {
             steps {
-                echo 'Empaquetando aplicación'
-                sh 'mvn package -DskipTests'
+                echo 'Simulando despliegue...'
+
+                // Crear carpeta de "deploy" si no existe
+                sh 'mkdir -p deploy'
+
+                // Copiar el JAR como si fuera un despliegue real
+                sh 'cp target/*.jar deploy/ || echo "No se encontró el .jar"'
+
+                echo 'Aplicación copiada a la carpeta deploy/.'
+                echo 'Despliegue simulado completado.'
             }
         }
     }
