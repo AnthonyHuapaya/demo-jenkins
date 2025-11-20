@@ -22,4 +22,9 @@ public class GreetingController {
     public String greeting3(@PathVariable String email) {
         return "Hello " + email;
     }
+
+    @GetMapping("{phone}")
+    public String greeting4(@PathVariable String phone) {
+        return "Hello " + phone;
+    }
 }
